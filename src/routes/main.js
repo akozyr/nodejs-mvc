@@ -1,8 +1,7 @@
 import { Router } from 'express'
+import controller from '../helpers/controller.js'
 const router = Router()
 
-router.get('/', (req, res) => {
-  res.send('Hello world\n')
-})
+router.get('/', controller('Main@index'))
 
-module.exports = router
+export default router
