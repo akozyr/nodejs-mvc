@@ -2,14 +2,14 @@ const CONTROLLERS_PATH = '../controllers'
 const DELIMITER = '@'
 
 export default function (title) {
-  const [controller, method] = title.split(DELIMITER)
-  const path = `${CONTROLLERS_PATH}/${controller}Controller.js`
+  const [controllerName, methodName] = title.split(DELIMITER)
+  const path = `${CONTROLLERS_PATH}/${controllerName}Controller.js`
   
-  import(path)
-    .then((obj) => { console.log(obj) })
-    .catch((err) => { console.error(err) })
+  try {
+    const resolvedController = require(path)
 
-  return function (req, res) {
-    res.send('Hello world\n')
+    return resolvedController.default[methodName]
+  } catch (e) {
+    console.error(e.message)
   }
 }
