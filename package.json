@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon --watch src src/index.js --exec 'npm run lint && node'",
+    "dev": "nodemon --watch src src/index.js --exec 'npm run lint && babel-node'",
     "lint": "eslint src/*.js"
   },
   "repository": {
@@ -22,6 +22,10 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
