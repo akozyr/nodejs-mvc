@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/akozyr/nodejs-mvc#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pug": "^2.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

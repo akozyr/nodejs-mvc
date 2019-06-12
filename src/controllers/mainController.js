@@ -1,5 +1,5 @@
 export default {
   index (req, res) {
-    res.send('Hello world\n')
+    res.render('index', { title: 'Main - index', message: 'Hello there!!' })
   }
 }
