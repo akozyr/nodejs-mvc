@@ -2,10 +2,10 @@ import dummyJson from 'dummy-json'
 
 function getJsonSchema() {
   return `[
-    {{#repeat 20}}
+    {{#repeat 10}}
     {
-      "product_id": {{@index}},
-      "isAvailable": {{boolean}},
+      "product_id": "{{guid}}",
+      "is_available": {{boolean}},
       "price": {{float 100 10000 '0.00'}},
       "title": "{{lorem 10}}",
       "description": "{{lorem 250}}",
@@ -21,8 +21,8 @@ function getJsonSchema() {
 
 export default {
   index (req, res) {
-    res.send(dummyJson.parse(getJsonSchema()))
+    const jsonString = dummyJson.parse(getJsonSchema())
 
-    res.render('index', { title: 'Main - index', message: 'Hello there!!' })
+    res.render('index', { title: 'Dashboard', data: JSON.parse(jsonString) })
   }
 }
