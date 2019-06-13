@@ -1,10 +1,11 @@
 html
   head
     title= title
+    script(src='https://code.jquery.com/jquery-3.4.1.min.js', crossorigin='anonymous')
     script(src='/socket.io/socket.io.js')
     script(src='/js/index.js')
   body
-    table(style='width:100%', border='1')
+    table(id='products', style='width:100%', border='1')
       caption Real time data
       tr
         th Id
