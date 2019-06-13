@@ -3,7 +3,7 @@ html
     title= title
     script(src='https://code.jquery.com/jquery-3.4.1.min.js', crossorigin='anonymous')
     script(src='/socket.io/socket.io.js')
-    script(src='/js/index.js')
+    script(src='/js/products.js')
   body
     table(id='products', style='width:100%', border='1')
       caption Real time data
@@ -16,7 +16,7 @@ html
         th Company
         th Email
         th Phone
-      each item in data
+      each item in products
         tr
           td= item.product_id
           td= item.title
