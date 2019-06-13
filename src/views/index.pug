@@ -1,7 +1,28 @@
 html
   head
     title= title
+    script(src='https://code.jquery.com/jquery-3.4.1.min.js', crossorigin='anonymous')
+    script(src='/socket.io/socket.io.js')
+    script(src='/js/index.js')
   body
-    h1= message
-
-    p Static content defined in the view file
+    table(id='products', style='width:100%', border='1')
+      caption Real time data
+      tr
+        th Id
+        th Title
+        th Available
+        th Price
+        th Seller Name
+        th Company
+        th Email
+        th Phone
+      each item in data
+        tr
+          td= item.product_id
+          td= item.title
+          td= item.is_available
+          td= item.price
+          td= item.seller_name
+          td= item.company
+          td= item.email
+          td= item.phone
