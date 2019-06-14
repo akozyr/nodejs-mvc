@@ -8,15 +8,15 @@ export default function productsChannel(io) {
     .on('connection', function(socket) {
       console.log('A client is connected.')
   
-      const jsonDataGenerator = new JsonDataGenerator()
-  
-      setInterval(() => {
-        const jsonString = jsonDataGenerator.generate(NUMBER_OF_GENERATED_PRODUCTS_PER_INTERVAL)
-        products.emit('products', { data: JSON.parse(jsonString) })
-      }, DELAY_FOR_PRODUCTS_GENERATING)
-  
       socket.on('disconnect', function () {
         console.log('A client is disconnected.')
       })
     })
+
+  const jsonDataGenerator = new JsonDataGenerator()
+
+  setInterval(() => {
+    const jsonString = jsonDataGenerator.generate(NUMBER_OF_GENERATED_PRODUCTS_PER_INTERVAL)
+    products.emit('products', { data: JSON.parse(jsonString) })
+  }, DELAY_FOR_PRODUCTS_GENERATING)
 }
