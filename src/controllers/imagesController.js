@@ -20,11 +20,11 @@ async function getTags() {
 
   await page.click('div#hdtb-msb-vis > div > a')
 
-  await page.waitFor(4000)
+  await page.waitFor(2000)
 
   await page.click('div.hdtb-imb > a')
 
-  await page.waitFor(3000)
+  await page.waitFor(2000)
 
   const tags = await page.evaluate(() => {
     let tags = []
