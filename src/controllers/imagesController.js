@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer'
 import path from 'path'
 
-async function scrape() {
+async function getTags() {
   const browser = await puppeteer.launch({args: ['--no-sandbox']})
   const page = await browser.newPage()
   
@@ -26,8 +26,19 @@ async function scrape() {
 
   await page.waitFor(3000)
 
-  await page.setViewport({"width": 1200,"height": 800})
-  await page.screenshot({path: 'a.png'})
+  const tags = await page.evaluate(() => {
+    let tags = []
+    const tagsHtmlCollection = document.getElementById('isr_chc').childNodes[0].childNodes[0].children
+
+    for (item of tagsHtmlCollection) {
+      tags.push(item.text)
+    }
+
+    return tags
+  })
+
+  // await page.setViewport({"width": 1200,"height": 800})
+  // await page.screenshot({path: 'a.png'})
  
   /*await page.waitFor('div#template-editor > div > div > textarea')
   await page.$eval('div#template-editor > div > div > textarea', el => {
@@ -64,13 +75,13 @@ async function scrape() {
   });
 */
   await browser.close()
-  return
+  return tags
 }
 
 export default {
   index (req, res) {
-    scrape().then((res) => { console.log(res) })
-
-    res.send('Success.')
+    getTags().then(tags => {
+      res.send(tags)
+    })
   }
 }
