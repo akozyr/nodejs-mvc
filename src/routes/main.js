@@ -7,4 +7,6 @@ router.get('/', controller('main@index'))
 
 router.get('/products', controller('products@index'))
 
+router.get('/images', controller('images@index'))
+
 export default router
