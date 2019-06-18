@@ -1,6 +1,7 @@
 import express from 'express'
 import path from 'path'
 import http from 'http'
+import fileUpload from 'express-fileupload'
 
 import mainRoutes from './routes/main.js'
 import sockets from './sockets'
@@ -16,6 +17,10 @@ sockets(server)
 server.listen(PORT, HOST)
 
 app.use(express.static(path.join(__dirname, '/public')))
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: '/tmp/'
+}))
 app.use('/', mainRoutes)
 
 app.set('views', path.join(__dirname, '/views'))

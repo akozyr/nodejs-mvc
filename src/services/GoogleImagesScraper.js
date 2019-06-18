@@ -1,8 +1,11 @@
 import puppeteer from 'puppeteer'
-import path from 'path'
 
 export default class GoogleImagesScraper
 {
+  constructor (imagePath) {
+    this.imagePath = imagePath
+  }
+  
   async receiveTags ()
   {
     const browser = await puppeteer.launch({args: ['--no-sandbox']})
@@ -20,8 +23,7 @@ export default class GoogleImagesScraper
 
     const IMAGE_INPUT_ELEMENT = 'input#qbfile'
     const input = await page.$(IMAGE_INPUT_ELEMENT)
-    const filePath = path.normalize(path.join(__dirname, '../../car.jpg'))
-    input.uploadFile(filePath)
+    input.uploadFile(this.imagePath)
 
     const ALL_TAB_ELEMENT = 'div#hdtb-msb-vis > div > a'
     await page.waitFor(ALL_TAB_ELEMENT)

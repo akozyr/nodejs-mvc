@@ -1,0 +1,11 @@
+html
+  head
+    title= title
+  body
+    form(method='POST', action='/images', encType="multipart/form-data")
+      div
+        label(for='image') Image:
+        input(type='file', name='image')
+
+      div
+        button(type='submit') Receive Tags
