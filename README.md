@@ -8,10 +8,10 @@ The app includes such parts:
 The app requires Node.js 10.0+ and NPM 6.0+. The repository contains Dockerfile, so you can raise required environment using the next commands:
 ```
 # build the image:
-docker build
+docker build --build-arg exposed_port=81 -t akozyr/nodejs-mvc .
 
 # run the container:
-docker run
+docker run -p 80:81 -v ${PWD}:/usr/src/app akozyr/nodejs-mvc
 ```
 
 That's it. Then access to [the app](http://localhost). Enjoy!
