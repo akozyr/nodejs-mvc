@@ -8,5 +8,6 @@ router.get('/', controller('main@index'))
 router.get('/products', controller('products@index'))
 
 router.get('/images', controller('images@index'))
+router.post('/images', controller('images@receiveTags'))
 
 export default router
