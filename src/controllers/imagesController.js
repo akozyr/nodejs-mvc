@@ -1,4 +1,3 @@
-import path from 'path'
 import GoogleImagesScraper from '../services/GoogleImagesScraper.js'
 
 export default {
