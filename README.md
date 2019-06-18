@@ -17,7 +17,7 @@ When we have the image built then we can run our container using the command bel
 docker run -p 80:81 -v ${PWD}:/usr/src/app akozyr/nodejs-mvc
 ```
 
-That's it. Then access to [the app](http://localhost). Enjoy!
+That's it. Then access [the app](http://localhost). Enjoy!
 
 ### 3rd-party packages
 The app is currently extended with the following packages.
