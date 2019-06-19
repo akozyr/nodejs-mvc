@@ -1,7 +1,7 @@
 # Node.js implementation of MVC pattern
 This repository contains Node.js implementation of MVC pattern (currently without models integration).
 The app includes such parts:
-- products (realtime fake products generation using `dummy-json` package and `socket.io` package for on-the-fly communication between clients and the server);
+- products (realtime fake products generation using `dummy-json` package and `socket.io` package for on-the-fly communication among clients and the server);
 - images (uploading images to the server and tagging them accordingly to their content using `puppeteer` package as headless chrome Node API for scraping computed tags from Google Images search). **NOTE:** These tags cannot be taken as real tags for images, for this purpose please use 3rd-party APIs.
 
 ### Installation
