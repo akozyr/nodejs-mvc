@@ -3,7 +3,7 @@ import JsonDataGenerator from '../services/JsonDataGenerator.js'
 const NUMBER_OF_DEFAULT_PRODUCTS = 10
 
 export default {
-  index (req, res) {    
+  index (req, res) {
     const jsonString = (new JsonDataGenerator()).generate(NUMBER_OF_DEFAULT_PRODUCTS)
     const viewData = {
       title: 'Products',

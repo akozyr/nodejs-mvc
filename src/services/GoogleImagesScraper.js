@@ -1,22 +1,20 @@
 import puppeteer from 'puppeteer'
 
-export default class GoogleImagesScraper
-{
+export default class GoogleImagesScraper {
   constructor (imagePath) {
     this.imagePath = imagePath
   }
-  
-  async receiveTags ()
-  {
-    const browser = await puppeteer.launch({args: ['--no-sandbox']})
-    const page = await browser.newPage()  
-    
+
+  async receiveTags () {
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] })
+    const page = await browser.newPage()
+
     const TARGET_URL = 'https://www.google.com/imghp'
     await page.goto(TARGET_URL)
 
     const SEARCH_BY_IMAGE_ICON_ELEMENT = 'div[jscontroller="TJw5qb"]'
     await page.click(SEARCH_BY_IMAGE_ICON_ELEMENT)
-    
+
     const UPLOAD_AN_IMAGE_TAB_ELEMENT = 'div#qbug > div > a'
     await page.waitFor(UPLOAD_AN_IMAGE_TAB_ELEMENT)
     await page.click(UPLOAD_AN_IMAGE_TAB_ELEMENT)
@@ -40,7 +38,7 @@ export default class GoogleImagesScraper
       let tags = []
       const tagsHtmlCollection = document.getElementById(tagsContainerId).childNodes[0].childNodes[0].children
 
-      for (item of tagsHtmlCollection) {
+      for (let item of tagsHtmlCollection) {
         tags.push(item.text)
       }
 

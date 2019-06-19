@@ -3,11 +3,11 @@ import JsonDataGenerator from '../services/JsonDataGenerator.js'
 const NUMBER_OF_GENERATED_PRODUCTS_PER_INTERVAL = 3
 const DELAY_FOR_PRODUCTS_GENERATING = 1000
 
-export default function productsChannel(io) {
+export default function productsChannel (io) {
   const products = io.of('/products')
-    .on('connection', function(socket) {
+    .on('connection', function (socket) {
       console.log('A client is connected.')
-  
+
       socket.on('disconnect', function () {
         console.log('A client is disconnected.')
       })

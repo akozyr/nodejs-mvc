@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon --watch src src/index.js --exec 'npm run lint && babel-node'",
-    "lint": "eslint src/*.js"
+    "lint": "eslint src/**/*.js"
   },
   "repository": {
     "type": "git",
