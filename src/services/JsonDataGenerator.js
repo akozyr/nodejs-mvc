@@ -1,12 +1,11 @@
 import dummyJson from 'dummy-json'
 
-export default class JsonDataGenerator
-{ 
+export default class JsonDataGenerator {
   generate (number = 10) {
     return dummyJson.parse(this._getJsonSchema(number))
   }
-  
-  _getJsonSchema(number) {
+
+  _getJsonSchema (number) {
     return `[
       {{#repeat ${number}}}
       {

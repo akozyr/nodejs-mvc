@@ -4,7 +4,7 @@ const DELIMITER = '@'
 export default function (title) {
   const [controllerName, methodName] = title.split(DELIMITER)
   const path = `${CONTROLLERS_PATH}/${controllerName}Controller.js`
-  
+
   try {
     const resolvedController = require(path)
 
